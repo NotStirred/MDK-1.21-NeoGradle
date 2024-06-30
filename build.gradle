@@ -34,6 +34,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 // Default run configurations.
 // These can be tweaked, removed, or duplicated as needed.
+sourceSets.test.runs.modIdentifier 'test'
 runs {
     // applies to all the run configs below
     configureEach {
@@ -136,6 +137,7 @@ test {
         events("passed", "skipped", "failed")
     }
 
+    exclude "**/mixin*"
     jvmArgs("-ea", "-Dmixin.debug.verbose=true", "-Dmixin.debug.export=true", "-Dmixin.checks.interfaces=true")
 }
 
